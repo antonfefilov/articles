@@ -37,6 +37,11 @@ en:
         edit: Change password
       confirmations:
         new: Didn't receive confirmation instructions?
+    articles:
+      index: Listing articles
+      new: Create new article
+      edit: Editing article
+      show: View article
 
   app:
     user:

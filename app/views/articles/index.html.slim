@@ -1,0 +1,31 @@
+- title
+
+table.table.table-striped
+  thead
+    tr
+        th Title
+        th Text
+        th Actions
+
+  - articles.each do |article|
+    tr
+      td= article.title
+      td= article.text
+      td.actions
+        = link_to(article, class: 'btn') do
+          i.icon-eye-open
+          |  Show
+        = link_to(edit_article_path(article), class: 'btn') do
+          i.icon-edit
+          |  Edit
+        = link_to(article, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') do
+          i.icon-trash.icon-white
+          |  Delete
+
+.paginator
+  = paginate(articles)
+
+br
+= link_to new_article_path, class: 'btn btn-primary' do
+  i.icon-plus.icon-white
+  |  New Article
