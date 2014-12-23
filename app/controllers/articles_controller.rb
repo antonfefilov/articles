@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   def create
     flash[:notice] = 'Article was successfully created.' if article.save
-    respond_with(article)
+    respond_with(article, location: root_path)
   end
 
   def update
