@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
 
   titles:
-    application: Rails Base example site
+    application: Articles test site
     dashboard:
       index: Dashboard
     devise:
@@ -42,6 +42,8 @@ en:
       new: Create new article
       edit: Editing article
       show: View article
+    comments:
+      new: Write new comment
 
   app:
     user:

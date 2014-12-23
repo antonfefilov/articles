@@ -1,11 +1,11 @@
-- title
+h1.text-center= title
 
 table.table.table-striped
   thead
     tr
-        th Title
-        th Text
-        th Actions
+        th.text-center width="250" Title
+        th.text-center width="500" Text
+        th.text-center width="250" Actions
 
   - articles.each do |article|
     tr
@@ -31,6 +31,7 @@ table.table.table-striped
   = paginate(articles)
 
 br
-= link_to new_article_path, class: 'btn btn-primary' do
-  i.icon-plus.icon-white
-  |  New Article
+
+.buttons.text-center
+  = link_to new_article_path, class: 'button' do
+    |  New Article
