@@ -1,23 +1,17 @@
-- title
+h1.text-center= title
 
 .show-item
-  .well.article.form-horizontal
+  table
+    thead
+      tr
+          th.text-center width="250" Title
+          th.text-center width="750" Text
 
-    .control-group
-      label.control-label
-        | Title
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          = article.title
-    .control-group
-      label.control-label
-        | Text
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = article.text
-  .form-actions
-    = link_to(edit_article_path(article), class: 'btn btn-primary') do
-      i.icon-pencil.icon-white
+    tr
+      td= article.title
+      td= article.text
+  .actions
+    = link_to(edit_article_path(article), class: 'button') do
       | Edit
     '  or
     = link_to 'Back', :back

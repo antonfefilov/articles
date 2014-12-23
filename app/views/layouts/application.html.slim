@@ -21,15 +21,16 @@ html class="no-js" lang="en"
       = javascript_include_tag "ie8/nwmatcher-1.2.5-min.js", "ie8/selectivizr-1.0.3b.js", "ie8/respond.min.js"
 
   body
-    #root
-      = render "navigation"
-      = render "messages"
+    .row
+      #root
+        = render "navigation"
+        = render "messages"
 
-      = yield
+        = yield
 
-      #push-footer
+        #push-footer
 
-    = render "footer"
+      = render "footer"
 
     = javascript_include_tag :application
 
