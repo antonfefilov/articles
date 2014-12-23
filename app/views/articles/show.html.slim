@@ -1,0 +1,22 @@
+- title 'View article'
+.show-item
+  .well.article.form-horizontal
+
+    .control-group
+      label.control-label
+        | Title
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = article.title
+    .control-group
+      label.control-label
+        | Text
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = article.text
+  .form-actions
+    = link_to(edit_article_path(article), class: 'btn btn-primary') do
+      i.icon-pencil.icon-white
+      | Edit
+    '  or
+    = link_to 'Back', :back
