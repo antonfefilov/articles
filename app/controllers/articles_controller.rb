@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   respond_to :html
 
   expose(:article, attributes: :article_params)
-  expose(:articles) { Article.page(params[:page]) }
+  expose(:articles) { Article.includes(:comments).page(params[:page]) }
 
   def create
     flash[:notice] = 'Article was successfully created.' if article.save
