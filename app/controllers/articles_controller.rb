@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
   def update
     flash[:notice] = 'Article was successfully updated.' if article.save
-    respond_with(article)
+    respond_with(article, location: root_path)
   end
 
   def destroy
