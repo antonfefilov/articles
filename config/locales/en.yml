@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
 
   titles:
-    application: Articles test site
+    application: Some title
     dashboard:
       index: Dashboard
     devise:
