@@ -9,8 +9,9 @@ table.table.table-striped
 
   - articles.each do |article|
     tr
-      td= article.title
-      td= article.text
+      - present(article) do |article|
+        td= article.title
+        td= article.text
       td.actions.text-center
         = link_to(article, class: 'btn') do
           i.icon-eye-open
