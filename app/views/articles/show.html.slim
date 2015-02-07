@@ -7,9 +7,10 @@ h1.text-center= title
           th.text-center width="250" Title
           th.text-center width="750" Text
 
-    tr
-      td= article.title
-      td= article.text
+    - present(article) do |article|
+      tr
+        td= article.title
+        td= article.text
 
   h4.text-center Comments
   = render 'comments', article: article
