@@ -15,12 +15,13 @@ table.table.table-striped
         = link_to(article, class: 'btn') do
           i.icon-eye-open
           |  Show
-        = link_to(edit_article_path(article), class: 'btn') do
-          i.icon-edit
-          |  Edit
-        = link_to(article, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') do
-          i.icon-trash.icon-white
-          |  Delete
+        - if policy(article).edit?
+          = link_to(edit_article_path(article), class: 'btn') do
+            i.icon-edit
+            |  Edit
+          = link_to(article, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') do
+            i.icon-trash.icon-white
+            |  Delete
         = link_to new_article_comment_path(article), class: 'btn btn-primary' do
           i.icon-plus.icon-white
           |  Leave Comment
@@ -33,5 +34,6 @@ table.table.table-striped
 br
 
 .buttons.text-center
-  = link_to new_article_path, class: 'button' do
-    |  New Article
+  - if current_user
+    = link_to new_article_path, class: 'button' do
+      |  New Article

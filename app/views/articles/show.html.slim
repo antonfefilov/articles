@@ -10,8 +10,9 @@ h1.text-center= title
     tr
       td= article.title
       td= article.text
-  .actions
-    = link_to(edit_article_path(article), class: 'button') do
-      | Edit
-    '  or
+  .actions.text-center
+    - if policy(article).edit?
+      = link_to(edit_article_path(article), class: 'button') do
+        | Edit
+      '  or
     = link_to 'Back', :back
