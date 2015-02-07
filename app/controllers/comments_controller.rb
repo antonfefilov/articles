@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def create
     comment.user = current_user if current_user.present?
     flash[:notice] = 'Comment was successfully created.' if comment.save
-    respond_with(comment, location: root_path)
+    respond_with(comment, location: article_path(comment.article))
   end
 
   private
