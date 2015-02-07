@@ -1,10 +1,8 @@
 .scaffold-form
   = simple_form_for [article, comment] do |f|
-    .form-inputs
+    .small-9.columns
       = f.input :text
 
-    .form-actions
-      = f.button :submit
-      '  or
-      = link_to 'Back', :back
+    .small-3.create-comments.columns
+      = f.button :submit, class: 'small'
 

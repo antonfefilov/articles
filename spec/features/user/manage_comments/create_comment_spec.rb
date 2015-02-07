@@ -12,9 +12,7 @@ feature 'Create comment' do
     login_page.load
     login_page.sign_in(user.email, '123456')
 
-    visit root_path
-
-    click_link 'Leave Comment'
+    visit article_path(article)
   end
 
   scenario 'User creates comment(success)' do
@@ -25,7 +23,7 @@ feature 'Create comment' do
     end
 
     expect(page).to have_content 'Comment was successfully created.'
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq article_path(article)
   end
 
   scenario 'User creates comment(fail)' do
@@ -35,7 +33,7 @@ feature 'Create comment' do
       click_button 'Create Comment'
     end
 
-    expect(page).to have_content "Textcan't be blank"
-    expect(current_path).to eq(article_comments_path(article))
+    expect(page).to have_content "Text can't be blank"
+    expect(current_path).to eq article_path(article)
   end
 end

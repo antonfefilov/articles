@@ -10,6 +10,15 @@ h1.text-center= title
     tr
       td= article.title
       td= article.text
+
+  h4.text-center Comments
+  = render 'comments', article: article
+
+  - if policy(:comment).create?
+    = render 'comments/form', comment: article.comments.new
+
+  hr
+
   .actions.text-center
     - if policy(article).edit?
       = link_to(edit_article_path(article), class: 'button') do
