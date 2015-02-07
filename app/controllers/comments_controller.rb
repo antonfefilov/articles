@@ -6,9 +6,15 @@ class CommentsController < ApplicationController
   expose(:comments, ancestor: :article)
 
   def create
-    comment.user = current_user if current_user.present?
-    flash[:notice] = 'Comment was successfully created.' if comment.save
-    respond_with(comment, location: article_path(comment.article))
+    authorize comment
+
+    if comment.save
+      flash[:notice] = 'Comment was successfully created.'
+    else
+      flash[:alert] = comment.errors.full_messages.first
+    end
+
+    redirect_to comment.article
   end
 
   private
