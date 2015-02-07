@@ -25,6 +25,7 @@ gem 'github-markdown' # only for dashboard controller
 
 # all other gems
 gem 'devise'
+gem 'pundit'
 gem 'decent_exposure'
 gem 'kaminari'
 gem 'rollbar', '~> 0.10.3'

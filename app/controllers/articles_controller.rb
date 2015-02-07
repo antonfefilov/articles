@@ -5,16 +5,23 @@ class ArticlesController < ApplicationController
   expose(:articles) { Article.page(params[:page]) }
 
   def create
+    authorize article
+
+    article.user = current_user
     flash[:notice] = 'Article was successfully created.' if article.save
     respond_with(article, location: root_path)
   end
 
   def update
+    authorize article
+
     flash[:notice] = 'Article was successfully updated.' if article.save
     respond_with(article, location: root_path)
   end
 
   def destroy
+    authorize article
+
     article.destroy
     respond_with(article)
   end

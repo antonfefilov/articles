@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Edit article' do
   let(:user) { create :user, :confirmed }
 
-  let!(:article) { create :article }
+  let!(:article) { create :article, user: user }
 
   let(:login_page) { Devise::Sessions::New.new }
   let(:edit_user_page) { Devise::Registrations::Edit.new }
@@ -17,7 +17,7 @@ feature 'Edit article' do
     click_link 'Edit'
   end
 
-  scenario 'User edits article(success)' do
+  scenario 'User edits his article(success)' do
     within 'form' do
       fill_in 'Title', with: 'First article'
       fill_in 'Text', with: 'A thousands mile way starts from first step'
@@ -29,7 +29,7 @@ feature 'Edit article' do
     expect(current_path).to eq(root_path)
   end
 
-  scenario 'User edits article(fail)' do
+  scenario 'User edits his article(fail)' do
     within 'form' do
       fill_in 'Title', with: ''
       fill_in 'Text', with: ''
